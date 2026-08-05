@@ -1,0 +1,21 @@
+{
+  "name": "static-site-generator",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A static site generator with a from-scratch template engine, vendoring project 08's Markdown parser.",
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "bin": { "ssg": "./src/cli.ts" },
+  "scripts": {
+    "build": "tsc",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "example": "node --import tsx examples/demo.ts",
+    "serve": "node --import tsx src/cli.ts serve --root examples/blog",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0"
+  }
+}
