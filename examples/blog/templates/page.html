@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title }} — {{ site.title }}{% endblock %}
+{% block description %}{{ page.excerpt | truncate:160 }}{% endblock %}
+{% block content %}
+  <article class="post">
+    <h1>{{ page.title }}</h1>
+    {% if page.date %}
+      <p class="meta">
+        <time datetime="{{ page.date | date:"YYYY-MM-DD" }}">{{ page.date | date:"MMMM DD, YYYY" }}</time>
+        · {{ page.readingTime }} min read · {{ page.wordCount }} words
+        {% for tag in page.tags %}· <a href="/tags/{{ tag }}/">{{ tag }}</a>{% endfor %}
+      </p>
+    {% endif %}
+    {% if page.tableOfContents %}
+      <nav class="toc"><strong>Contents</strong>{{ page.tocHtml | safe }}</nav>
+    {% endif %}
+    <div class="content">{{ page.content | safe }}</div>
+  </article>
+{% endblock %}

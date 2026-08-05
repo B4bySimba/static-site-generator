@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="{{ site.language | default:"en" }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ site.title }}{% endblock %}</title>
+  <meta name="description" content="{% block description %}{{ site.description }}{% endblock %}">
+  <link rel="alternate" type="application/rss+xml" href="/feed.xml" title="{{ site.title }}">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+  {% include "header.html" %}
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  {% include "footer.html" %}
+</body>
+</html>

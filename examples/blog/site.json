@@ -1,0 +1,14 @@
+{
+  "site": {
+    "title": "Built From Scratch",
+    "description": "Notes on rebuilding infrastructure to understand it.",
+    "url": "https://example.com",
+    "author": "Bruce",
+    "language": "en"
+  },
+  "contentDir": "content",
+  "templateDir": "templates",
+  "assetDir": "assets",
+  "outputDir": "dist",
+  "postsPerPage": 3
+}
