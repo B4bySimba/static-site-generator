@@ -1,6 +1,6 @@
-# Vendored: markdown-parser (project 08)
+# Vendored: markdown-parser
 
-This directory is a **copy** of project 08's `src/`, not an import.
+This directory is a **copy** of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser)'s `src/`, not an import.
 
 ## Why a copy
 
@@ -12,7 +12,7 @@ Duplication here is the deliberate choice, not an accident.
 
 ## Provenance
 
-- Source: `projects/markdown-parser/src/`
+- Source: <https://github.com/B4bySimba/markdown-parser> (`src/`)
 - Vendored at: 2026-08-06
 - Local modifications: **none** - this is a verbatim copy, which is what makes re-syncing
   a simple `cp -r`.
@@ -20,8 +20,9 @@ Duplication here is the deliberate choice, not an accident.
 ## Re-syncing
 
 ```bash
+git clone --depth 1 https://github.com/B4bySimba/markdown-parser /tmp/markdown-parser
 rm -rf src/vendor/markdown
-cp -r ../markdown-parser/src src/vendor/markdown
+cp -r /tmp/markdown-parser/src src/vendor/markdown
 ```
 
 The vendored parser's own tests live with the original project; this project's tests cover

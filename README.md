@@ -4,7 +4,7 @@ A static site generator with a **template engine written from scratch**, an asse
 with content hashing, feed/sitemap/search-index generation, and a dev server with live reload
 over SSE. It replaces Eleventy, Hugo, and Jekyll.
 
-The Markdown parser is a **vendored copy** of [project 08](../markdown-parser) - a real
+The Markdown parser is a **vendored copy** of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser) - a real
 directory of source, not an import - so this project stands alone.
 
 Zero runtime dependencies.
@@ -157,7 +157,7 @@ YAML subset. See [docs/design.md](docs/design.md).
 
 **Zero runtime dependencies.** The template engine, content pipeline, asset pipeline,
 minifiers, feed generators, and dev server are all hand-written; the Markdown parser is a
-vendored copy of project 08. Dev-only: `typescript`, `tsx`, `@types/node`. Deliberately
+vendored copy of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser). Dev-only: `typescript`, `tsx`, `@types/node`. Deliberately
 **not** used: `eleventy`, `hugo`, `jekyll`, `astro`, `nunjucks`, `liquidjs`, `handlebars`,
 `ejs`, `marked`, `gray-matter`, `js-yaml`, `feed`, `chokidar`, `cssnano`, `html-minifier`,
 `lunr`, `fuse.js`.

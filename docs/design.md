@@ -2,7 +2,7 @@
 
 ## The vendoring decision
 
-`src/vendor/markdown/` is a **verbatim copy** of project 08's `src/`, not an import.
+`src/vendor/markdown/` is a **verbatim copy** of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser)'s `src/`, not an import.
 
 The portfolio's rule is that every project stands alone: you can lift one folder out of the
 repo and it still builds and runs. An `import "../markdown-parser/src"` breaks that
