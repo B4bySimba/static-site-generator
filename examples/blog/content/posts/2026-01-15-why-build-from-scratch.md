@@ -12,7 +12,7 @@ When you `npm install` a Markdown parser, you get a working parser and a hole in
 understanding shaped exactly like that parser. You know its API. You do not know why
 `snake_case_variable` is not italicised, or why `*` and `_` follow different rules.
 
-Both facts fall out of one design decision — the CommonMark delimiter-run flanking rules —
+Both facts fall out of one design decision - the CommonMark delimiter-run flanking rules -
 and you will never encounter that decision by reading an API reference.
 
 ## What "from scratch" should mean

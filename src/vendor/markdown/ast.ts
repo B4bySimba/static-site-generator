@@ -2,12 +2,12 @@
  * The AST.
  *
  * The whole design rests on one decision: **parse to a tree, then render the tree**. A
- * regex-substitution Markdown converter — the classic "match a pair of asterisks and swap in
- * `<strong>`" approach — cannot express nesting, cannot tell a `*` inside a code span from an
+ * regex-substitution Markdown converter - the classic "match a pair of asterisks and swap in
+ * `<strong>`" approach - cannot express nesting, cannot tell a `*` inside a code span from an
  * emphasis marker, and has no place to hang extensions. A tree can do all three.
  *
- * Nodes are plain data. Everything that consumes them — the HTML renderer, the plain-text
- * renderer, the TOC builder, a user's own visitor — is just a function over this shape.
+ * Nodes are plain data. Everything that consumes them - the HTML renderer, the plain-text
+ * renderer, the TOC builder, a user's own visitor - is just a function over this shape.
  */
 
 export type Node = BlockNode | InlineNode;
@@ -59,7 +59,7 @@ export interface CodeBlock {
   type: "code";
   /** Info string after the fence, e.g. "ts" or "js title=x". Empty for indented code. */
   info: string;
-  /** The first word of the info string — the language. */
+  /** The first word of the info string - the language. */
   lang: string;
   value: string;
   fenced: boolean;

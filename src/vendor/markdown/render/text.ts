@@ -1,5 +1,5 @@
 /**
- * Plain-text renderer — the second renderer, whose existence is the point: the AST is a
+ * Plain-text renderer - the second renderer, whose existence is the point: the AST is a
  * genuine intermediate representation, not an HTML string builder in disguise.
  *
  * Useful for search indexes, email fallbacks, reading-time estimates, and excerpts.

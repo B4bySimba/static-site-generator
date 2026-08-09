@@ -14,7 +14,7 @@ Duplication here is the deliberate choice, not an accident.
 
 - Source: `projects/markdown-parser/src/`
 - Vendored at: 2026-08-06
-- Local modifications: **none** — this is a verbatim copy, which is what makes re-syncing
+- Local modifications: **none** - this is a verbatim copy, which is what makes re-syncing
   a simple `cp -r`.
 
 ## Re-syncing

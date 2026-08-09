@@ -1,4 +1,4 @@
-/* A small, readable stylesheet — deliberately hand-written so the minifier has real input. */
+/* A small, readable stylesheet - deliberately hand-written so the minifier has real input. */
 :root {
   color-scheme: light dark;
   --bg: #fcfcfb;

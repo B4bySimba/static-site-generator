@@ -3,7 +3,7 @@
  * isn't a word character/space/hyphen, then spaces to hyphens.
  *
  * Duplicates get a numeric suffix (`overview`, `overview-1`, `overview-2`), which is why a
- * counter has to be threaded through the parse — slug uniqueness is a document-level
+ * counter has to be threaded through the parse - slug uniqueness is a document-level
  * property, not a per-heading one.
  */
 

@@ -19,7 +19,7 @@ emitting.
 
 ## What it buys
 
-Content-hashed filenames only work if identical content yields an identical hash — which
+Content-hashed filenames only work if identical content yields an identical hash - which
 requires identical bytes. `style.a3f9c1d2.css` can be cached forever precisely because a
 change produces a different name.
 

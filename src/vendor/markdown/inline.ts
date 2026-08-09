@@ -20,7 +20,7 @@
  *                    OR followed by whitespace/punctuation)
  *
  *   `*` may open if left-flanking, may close if right-flanking.
- *   `_` additionally may not open when it could also close unless preceded by punctuation —
+ *   `_` additionally may not open when it could also close unless preceded by punctuation -
  *       which is precisely what keeps snake_case identifiers intact.
  *
  * The parser therefore runs in two passes: scan the text into a flat list of nodes while
@@ -66,7 +66,7 @@ class InlineParser {
   /**
    * Indices of text nodes that are delimiter-run placeholders. Ordinary text must never be
    * merged into one of these: the placeholder's content IS the run, and emphasis processing
-   * later trims characters off it by length. (Merging them was a real bug — `*foo*` produced
+   * later trims characters off it by length. (Merging them was a real bug - `*foo*` produced
    * `*fo<em></em>` because the opener node had swallowed the word.)
    */
   private delimiterNodes = new Set<number>();
@@ -146,7 +146,7 @@ class InlineParser {
 
   /**
    * A code span is delimited by equal-length backtick runs. Content is taken literally, which
-   * is why `` `*not emphasis*` `` works — the scanner never enters it.
+   * is why `` `*not emphasis*` `` works - the scanner never enters it.
    */
   private handleCodeSpan(): void {
     const start = this.pos;
@@ -522,7 +522,7 @@ class InlineParser {
 
 /**
  * The "rule of 3": when a delimiter run can both open and close, an opener/closer pair whose
- * combined length is a multiple of 3 is rejected — unless both lengths are themselves
+ * combined length is a multiple of 3 is rejected - unless both lengths are themselves
  * multiples of 3. It exists to make cases like `*foo**bar**baz*` parse the way people expect.
  */
 function violatesRuleOfThree(opener: Delimiter, closer: Delimiter): boolean {

@@ -1,7 +1,7 @@
 /**
  * Front matter extraction.
  *
- * A minimal YAML subset — scalars, quoted strings, booleans, numbers, inline `[a, b]` arrays,
+ * A minimal YAML subset - scalars, quoted strings, booleans, numbers, inline `[a, b]` arrays,
  * and block `- item` arrays. Deliberately NOT a YAML parser: full YAML is a famously large
  * spec (anchors, multi-line scalars, custom tags) and pulling `js-yaml` in would violate the
  * zero-dependency rule for a feature that, in practice, is used for `title`, `date`, `tags`,

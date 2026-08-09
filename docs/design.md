@@ -1,4 +1,4 @@
-# Design notes — Static Site Generator
+# Design notes - Static Site Generator
 
 ## The vendoring decision
 
@@ -9,7 +9,7 @@ repo and it still builds and runs. An `import "../markdown-parser/src"` breaks t
 immediately, and also couples this generator's release cadence to the parser's.
 
 So the duplication is the deliberate choice. `VENDORED.md` records the provenance, states
-that there are no local modifications, and gives the one-line re-sync command — which is what
+that there are no local modifications, and gives the one-line re-sync command - which is what
 makes vendoring maintainable rather than a slow-motion fork.
 
 ## The template engine
@@ -21,7 +21,7 @@ an `{% if %}` inside a `{% for %}` needs no special handling once you're walking
 ### Auto-escaping is the default
 
 `{{ post.title }}` is escaped; `{{ post.title | safe }}` is not. Templates render
-attacker-influenced data constantly — a title, a comment, a search query — and an engine that
+attacker-influenced data constantly - a title, a comment, a search query - and an engine that
 escapes only when asked has the default exactly backwards. Being explicit about *unsafety* is
 the whole point, and `| safe` makes that a visible decision at the call site.
 
@@ -31,7 +31,7 @@ look pre-escaped.
 ### Layout inheritance
 
 `{% extends %}` walks the chain collecting blocks, child-wins, then renders the **root
-parent**. Content outside a block in a child template is discarded — that is what makes
+parent**. Content outside a block in a child template is discarded - that is what makes
 `{% extends %}` a layout rather than a concatenation, and it's asserted in a test.
 
 Circular `extends` is detected rather than hanging.
@@ -39,7 +39,7 @@ Circular `extends` is detected rather than hanging.
 ### The loader is synchronous
 
 `{% include %}` and `{% extends %}` resolve mid-render. Threading `async` through the renderer
-would infect every node type — for a template engine reading small local files, that's a lot
+would infect every node type - for a template engine reading small local files, that's a lot
 of ceremony for no benefit. Stated here because it is a real constraint, not an oversight.
 
 ## Determinism
@@ -73,7 +73,7 @@ and restored afterward.
 
 **HTML**: worse, because whitespace between inline elements is **rendered**.
 `<b>a</b> <i>b</i>` shows a space; removing it changes the page. So the minifier only collapses
-whitespace runs that contain a newline — those came from source formatting — and never touches
+whitespace runs that contain a newline - those came from source formatting - and never touches
 `<pre>`, `<textarea>`, `<script>`, or `<style>`.
 
 A minifier that saves 5% and corrupts one page in a hundred is a bad trade.
@@ -81,7 +81,7 @@ A minifier that saves 5% and corrupts one page in a hundred is a bad trade.
 ## Live reload over SSE, not WebSockets
 
 Live reload is one-directional: the server says "reloaded", the browser refreshes.
-Server-Sent Events is a plain `text/event-stream` HTTP response — no handshake, no framing,
+Server-Sent Events is a plain `text/event-stream` HTTP response - no handshake, no framing,
 no protocol to implement, and `EventSource` reconnects automatically. A WebSocket would be
 strictly more machinery for a channel that never carries client→server traffic.
 

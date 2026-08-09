@@ -2,7 +2,7 @@
  * Content loading: read files, parse front matter, render Markdown, derive metadata.
  *
  * The Markdown parser is the VENDORED copy of project 08 (see src/vendor/markdown/
- * VENDORED.md). It's a copy rather than an import so this generator stands alone — you can
+ * VENDORED.md). It's a copy rather than an import so this generator stands alone - you can
  * lift this folder out of the repo and it still builds.
  */
 
@@ -258,7 +258,7 @@ export function paginate<T>(items: T[], perPage: number, baseUrl: string): Array
   const pages: Array<Page<T>> = [];
 
   for (let i = 0; i < total; i++) {
-    // Page 1 lives at the base URL; later pages at /page/2/ — the convention readers expect.
+    // Page 1 lives at the base URL; later pages at /page/2/ - the convention readers expect.
     const url = i === 0 ? baseUrl : `${baseUrl}page/${i + 1}/`;
     pages.push({
       items: items.slice(i * perPage, (i + 1) * perPage),

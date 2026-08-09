@@ -16,7 +16,7 @@ anything, and that inversion changes the whole design.
 <<<>>>
 ```
 
-A browser renders all four. The spec does not describe a grammar and then handle errors — it
+A browser renders all four. The spec does not describe a grammar and then handle errors - it
 describes an algorithm whose *definition* covers every input.
 
 ## The rules that do the work
@@ -43,9 +43,9 @@ It looks absurd until you realize it is why two decades of broken table markup s
 An HTML sanitizer built on regexes fails because the attacker and the browser agree on how to
 parse the input, and the regex does not:
 
-- `<img/src=x/onerror=alert(1)>` — slashes are valid separators
-- `<a href="jav&#97;script:...">` — entity-encoded scheme
-- `<scr<script>ipt>` — the filter's own removal creates the tag
+- `<img/src=x/onerror=alert(1)>` - slashes are valid separators
+- `<a href="jav&#97;script:...">` - entity-encoded scheme
+- `<scr<script>ipt>` - the filter's own removal creates the tag
 
 Sanitize the parsed **tree** and all of them close at once, because the ambiguity is already
 resolved. Error recovery is not a nicety here; it is the security boundary.

@@ -17,7 +17,7 @@
  *
  * The same reason as the Markdown parser: `{% if %}` blocks nest, and a regex has no stack.
  * A template is tokenized, parsed into a tree of nodes, and then *rendered* by walking that
- * tree — so `{% for %}` inside `{% if %}` inside `{% for %}` needs no special handling.
+ * tree - so `{% for %}` inside `{% if %}` inside `{% for %}` needs no special handling.
  *
  * ## Auto-escaping is the default
  *
@@ -425,7 +425,7 @@ export const DEFAULT_FILTERS: Record<string, Filter> = {
   },
   /** URL-encode. */
   urlencode: (value) => encodeURIComponent(String(value ?? "")),
-  /** Strip HTML tags — for excerpts and meta descriptions. */
+  /** Strip HTML tags - for excerpts and meta descriptions. */
   striptags: (value) => String(value ?? "").replace(/<[^>]*>/g, ""),
   json: (value) => new SafeString(JSON.stringify(value)),
 };

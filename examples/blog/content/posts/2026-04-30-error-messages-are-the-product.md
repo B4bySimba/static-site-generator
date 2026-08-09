@@ -27,7 +27,7 @@ JsonParseError: Expected a value but found "}" (line 3, column 18)
 
 ## The cost of the second one
 
-About **8x** the parse time. That is not a defect to be optimized away — it is the price of
+About **8x** the parse time. That is not a defect to be optimized away - it is the price of
 being written in the language it parses, allocating a token object per token instead of
 living inside V8's object representation.
 
@@ -43,5 +43,5 @@ Native, for hot paths on trusted input. Hand-written, for:
 
 "It already exists and is faster" answers a question about *throughput*. It does not answer
 whether the existing thing does the job you have. Position tracking is not a feature you can
-bolt onto a parser afterwards — it has to be threaded through the scanner from the start.
+bolt onto a parser afterwards - it has to be threaded through the scanner from the start.
 Decide early, or decide never.

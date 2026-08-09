@@ -4,7 +4,7 @@
  *
  * All the XML is built by hand, which means escaping is a real concern: a post title
  * containing `&` or `<` produces invalid XML that feed readers reject outright. XML has no
- * error recovery — unlike HTML, a malformed feed is simply not a feed.
+ * error recovery - unlike HTML, a malformed feed is simply not a feed.
  */
 
 import type { PageData } from "./content.js";
@@ -65,7 +65,7 @@ ${items}
 `;
 }
 
-/** Atom 1.0. Dates are RFC 3339 (ISO 8601) here — the opposite of RSS. */
+/** Atom 1.0. Dates are RFC 3339 (ISO 8601) here - the opposite of RSS. */
 export function renderAtom(site: SiteConfig, pages: PageData[], limit = 20, now = new Date()): string {
   const dated = pages.filter((p) => p.date !== null).slice(0, limit);
   const updated = dated[0]?.date?.toISOString() ?? now.toISOString();
@@ -163,7 +163,7 @@ export function render404(site: SiteConfig): string {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Page not found — ${escapeXml(site.title)}</title>
+<title>Page not found - ${escapeXml(site.title)}</title>
 <style>
   body { font: 16px/1.6 system-ui, sans-serif; max-width: 40rem; margin: 15vh auto; padding: 0 1.5rem; }
   h1 { font-size: 3rem; margin: 0; }

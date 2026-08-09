@@ -5,14 +5,14 @@
  * ## Why SSE and not WebSockets
  *
  * Live reload is one-directional: the server says "reloaded", the browser refreshes. SSE is
- * a plain `text/event-stream` HTTP response — no handshake, no framing, no protocol
+ * a plain `text/event-stream` HTTP response - no handshake, no framing, no protocol
  * implementation, and automatic reconnection is built into `EventSource`. A WebSocket would
  * be strictly more machinery for a channel that never carries client→server traffic.
  * (Project 07 implements RFC 6455 in full, for when you genuinely need duplex.)
  *
  * ## Debouncing
  *
- * Editors write files in bursts — a save can produce several `change` events, and some write
+ * Editors write files in bursts - a save can produce several `change` events, and some write
  * a temp file and rename over the target. Rebuilding per event means rebuilding three times
  * per keystroke-save. A short debounce coalesces the burst into one rebuild.
  */
@@ -88,7 +88,7 @@ export async function serve(options: ServeOptions): Promise<DevServer> {
   const host = options.host ?? "127.0.0.1";
   const debounceMs = options.debounceMs ?? 100;
 
-  // Dev builds include drafts and scheduled posts, and skip minification — you want to see
+  // Dev builds include drafts and scheduled posts, and skip minification - you want to see
   // what you are writing, and readable output when you view-source.
   const devOptions: BuildOptions = {
     ...options,
@@ -243,7 +243,7 @@ export async function serve(options: ServeOptions): Promise<DevServer> {
       const watcher = watch(dir, { recursive: true }, scheduleRebuild);
       watchers.push(watcher);
     } catch {
-      // A missing directory is not fatal — a site may have no assets.
+      // A missing directory is not fatal - a site may have no assets.
     }
   }
 

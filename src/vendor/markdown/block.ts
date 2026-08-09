@@ -2,7 +2,7 @@
  * Phase 1: the block parser.
  *
  * It walks the document **line by line** and decides what block each line starts or
- * continues. It never looks inside a line's text — that's phase 2's job. Keeping the phases
+ * continues. It never looks inside a line's text - that's phase 2's job. Keeping the phases
  * apart is what makes the whole thing tractable:
  *
  *   - block phase: which lines form a paragraph / list item / code fence?
@@ -61,7 +61,7 @@ function normalizeLines(source: string): string[] {
 /**
  * Expand tabs only where they act as indentation (CommonMark §2.2).
  *
- * Tabs matter for block structure — "\tfoo" is an indented code block because the tab
+ * Tabs matter for block structure - "\tfoo" is an indented code block because the tab
  * advances to column 4. But a tab INSIDE content is data and must survive verbatim, or
  * `\tfoo\tbaz` in a code block loses its internal alignment. Expanding every tab in the line
  * was a real conformance failure against the spec's very first example.

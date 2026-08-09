@@ -3,12 +3,15 @@
  *
  * The full HTML5 named-character-reference table has ~2,200 entries and would dwarf this
  * file. We ship the ones that actually appear in prose, plus complete support for numeric
- * references (`&#169;`, `&#xA9;`) which cover everything else — an author can always write
+ * references (`&#169;`, `&#xA9;`) which cover everything else - an author can always write
  * the code point. Unknown named entities are left verbatim rather than silently dropped.
  */
 
 const NAMED: Record<string, string> = {
   amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ",
+  // The literal characters below are the entity VALUES defined by the spec, not
+  // prose. mdash must stay U+2014 and ndash U+2013; a bulk dash replacement here
+  // silently breaks &mdash; decoding.
   copy: "©", reg: "®", trade: "™", hellip: "…", mdash: "—", ndash: "–",
   lsquo: "‘", rsquo: "’", ldquo: "“", rdquo: "”",
   laquo: "«", raquo: "»", deg: "°", plusmn: "±", times: "×", divide: "÷",

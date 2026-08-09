@@ -99,7 +99,7 @@ async function main(): Promise<number> {
     }
 
     default:
-      out(`ssg — a static site generator
+      out(`ssg - a static site generator
 
 Usage:
   ssg build [options]     Build the site into dist/

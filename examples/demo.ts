@@ -163,7 +163,7 @@ async function main(): Promise<void> {
   rule("8. The Markdown parser is VENDORED, not imported");
   out("  src/vendor/markdown/ is a verbatim copy of project 08's src/.");
   out("");
-  out("  Why: the portfolio's rule is that every project stands alone — you can lift one");
+  out("  Why: the portfolio's rule is that every project stands alone - you can lift one");
   out("  folder out of the repo and it still builds. An import across project boundaries");
   out("  would break that, and couple this generator's releases to the parser's.");
   out("");
