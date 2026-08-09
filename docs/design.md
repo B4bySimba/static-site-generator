@@ -2,7 +2,7 @@
 
 ## The vendoring decision
 
-`src/vendor/markdown/` is a **verbatim copy** of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser)'s `src/`, not an import.
+`src/vendor/markdown/` is a verbatim copy of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser)'s `src/`, not an import.
 
 The portfolio's rule is that every project stands alone: you can lift one folder out of the
 repo and it still builds and runs. An `import "../markdown-parser/src"` breaks that
@@ -14,7 +14,7 @@ makes vendoring maintainable rather than a slow-motion fork.
 
 ## The template engine
 
-Same architecture as the Markdown parser, for the same reason: **tokenize → tree → render**,
+Same architecture as the Markdown parser, for the same reason: tokenize → tree → render,
 not regex substitution. `{% if %}` blocks nest, and a regex has no stack. A `{% for %}` inside
 an `{% if %}` inside a `{% for %}` needs no special handling once you're walking a tree.
 
@@ -51,7 +51,7 @@ Three sources of non-determinism, each handled:
 
 | Source | Fix |
 |---|---|
-| Timestamps (`<lastBuildDate>`) | The build clock is **injected**; `deterministic: true` pins it |
+| Timestamps (`<lastBuildDate>`) | The build clock is injected; `deterministic: true` pins it |
 | Directory read order | Every list is explicitly sorted |
 | `Map` iteration order | Tag names sorted before emitting tag pages |
 
@@ -71,7 +71,7 @@ output.
 two spaces. So string literals and `url()` contents are *stashed* before any transformation
 and restored afterward.
 
-**HTML**: worse, because whitespace between inline elements is **rendered**.
+**HTML**: worse, because whitespace between inline elements is rendered.
 `<b>a</b> <i>b</i>` shows a space; removing it changes the page. So the minifier only collapses
 whitespace runs that contain a newline - those came from source formatting - and never touches
 `<pre>`, `<textarea>`, `<script>`, or `<style>`.
@@ -120,15 +120,15 @@ capping body text is the difference between a 3 KB and a 300 KB download.
 
 ## What I skipped
 
-- ⬜ **Responsive image handling** (generating multiple widths + `srcset`). It needs an image
+- **Responsive image handling** (generating multiple widths + `srcset`). It needs an image
   codec, which means a native dependency doing work unrelated to what this project teaches.
-- ⬜ **Incremental rebuilds.** The dev server rebuilds everything on change. At this scale
+- **Incremental rebuilds.** The dev server rebuilds everything on change. At this scale
   that's ~90ms, so a dependency graph would add real complexity for no felt benefit. It's the
   first thing to add if a site grows past a few hundred pages.
-- ⬜ **JavaScript bundling.** A different project entirely.
-- ⬜ **Full YAML front matter.** The vendored parser handles a practical subset (scalars,
+- **JavaScript bundling.** A different project entirely.
+- **Full YAML front matter.** The vendored parser handles a practical subset (scalars,
   arrays, dates, booleans); full YAML is a famously large spec.
-- ⬜ **Syntax highlighting.** The Markdown parser exposes a `highlight` hook; wiring a
+- **Syntax highlighting.** The Markdown parser exposes a `highlight` hook; wiring a
   highlighter in is configuration, not construction.
 
 ## What production would add

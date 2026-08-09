@@ -1,7 +1,7 @@
 /**
  * Phase 1: the block parser.
  *
- * It walks the document **line by line** and decides what block each line starts or
+ * It walks the document line by line and decides what block each line starts or
  * continues. It never looks inside a line's text - that's phase 2's job. Keeping the phases
  * apart is what makes the whole thing tractable:
  *

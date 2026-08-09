@@ -4,7 +4,7 @@ date: 2026-02-08
 tags: [parsing, design]
 ---
 
-Every parser worth writing separates **lexical** structure from **syntactic** structure.
+Every parser worth writing separates lexical structure from syntactic structure.
 
 ## The pattern
 

@@ -1,18 +1,9 @@
 /**
  * The build pipeline.
  *
- * ## Determinism
- *
- * Two builds of the same input must produce byte-identical output. That is what makes
- * content-hashed filenames stable (so caches stay warm), makes deploys diffable, and makes
- * "did anything actually change?" answerable. Achieving it means being deliberate about:
- *
- *   - **Ordering.** Every list is explicitly sorted; directory read order is not stable.
- *   - **Timestamps.** A build clock is injected, so `<lastBuildDate>` doesn't make every
- *     build differ. Production passes the real clock; tests pass a fixed one.
- *
- * The `deterministic` option pins the clock, and there is a test that runs the whole build
- * twice and compares every output file.
+ * Two builds of the same input produce identical bytes, which keeps content
+ * hashes stable and deploys diffable. Two things threaten that: directory read
+ * order (so every list is sorted) and timestamps (so the clock is injected).
  */
 
 import { promises as fs, readFileSync } from "node:fs";

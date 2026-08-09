@@ -1,10 +1,10 @@
 # Static Site Generator
 
-A static site generator with a **template engine written from scratch**, an asset pipeline
+A static site generator with a template engine written from scratch, an asset pipeline
 with content hashing, feed/sitemap/search-index generation, and a dev server with live reload
 over SSE. It replaces Eleventy, Hugo, and Jekyll.
 
-The Markdown parser is a **vendored copy** of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser) - a real
+The Markdown parser is a vendored copy of the [Markdown Parser](https://github.com/B4bySimba/markdown-parser) - a real
 directory of source, not an import - so this project stands alone.
 
 Zero runtime dependencies.
@@ -36,31 +36,33 @@ Real output from a build of the bundled 6-post blog:
 
 ## Feature checklist
 
-**Pipeline** - ✅ read content → front matter → **vendored** Markdown parser → templates →
-`dist/` · ✅ per-stage timing · ✅ **deterministic builds** (verified byte-for-byte in a test)
+**Pipeline** - read content → front matter → vendored Markdown parser → templates →
+`dist/` · per-stage timing · deterministic builds (verified byte-for-byte in a test)
 
-**Template engine (from scratch)** - ✅ `{{ var }}` · ✅ filters with arguments, chainable
-(18 built in) · ✅ `{% if %}/{% elif %}/{% else %}` with comparisons and `not` ·
-✅ `{% for %}` with `loop.index/first/last/length` and `{% empty %}` · ✅ `{% include %}` ·
-✅ `{% extends %}` + `{% block %}` layout inheritance, multi-level · ✅ `{# comments #}` ·
-✅ **auto-escaping by default**, `| safe` to opt out · ✅ errors with template name and line
+**Template engine (from scratch)** - `{{ var }}` · filters with arguments, chainable
+(18 built in) · `{% if %}/{% elif %}/{% else %}` with comparisons and `not` ·
+`{% for %}` with `loop.index/first/last/length` and `{% empty %}` · `{% include %}` ·
+`{% extends %}` + `{% block %}` layout inheritance, multi-level · `{# comments #}` ·
+**auto-escaping by default**, `| safe` to opt out · errors with template name and line
 
-**Content** - ✅ collections from directory structure · ✅ tags/taxonomies with per-tag pages ·
-✅ pagination · ✅ drafts · ✅ scheduled (future-dated) posts · ✅ heading slugs + TOC ·
-✅ excerpts, word count, reading time
+**Content** - collections from directory structure · tags/taxonomies with per-tag pages ·
+pagination · drafts · scheduled (future-dated) posts · heading slugs + TOC ·
+excerpts, word count, reading time
 
-**Assets & output** - ✅ static copy with **content-hashed filenames** and reference rewriting ·
-✅ conservative CSS + HTML minification · ✅ RSS + Atom · ✅ `sitemap.xml` · ✅ `robots.txt` ·
-✅ per-tag pages · ✅ 404 page · ✅ client-side search index (JSON)
+**Assets & output** - static copy with content-hashed filenames and reference rewriting ·
+conservative CSS + HTML minification · RSS + Atom · `sitemap.xml` · `robots.txt` ·
+per-tag pages · 404 page · client-side search index (JSON)
 
-**Dev server** - ✅ file watching with debounce · ✅ live reload over **SSE** ·
-✅ build errors shown as an in-page overlay · ✅ drafts visible · ✅ traversal-safe
+**Dev server** - file watching with debounce · live reload over SSE ·
+build errors shown as an in-page overlay · drafts visible · traversal-safe
 
-**Example** - ✅ a real 6-post blog that actually builds
+**Example** - a real 6-post blog that actually builds
 
-- ⬜ Responsive images - needs an image codec (a native dep unrelated to the lesson)
-- ⬜ Incremental rebuilds - full rebuild is ~90ms here; see design.md
-- ⬜ JS bundling, full YAML, syntax highlighting (the hook exists)
+Not built:
+
+- Responsive images - needs an image codec (a native dep unrelated to the lesson)
+- Incremental rebuilds - full rebuild is ~90ms here; see design.md
+- JS bundling, full YAML, syntax highlighting (the hook exists)
 
 ## Template syntax
 
@@ -143,10 +145,10 @@ The bundled 6-post blog, on this machine:
 | pages (7 rendered) | 12 ms |
 | taxonomies (7 tag pages) | 6 ms |
 | feeds (6 files) | 5 ms |
-| **total** | **~92 ms → 22 files, 52 KB** |
+| **total** | ~92 ms → 22 files, 52 KB |
 
 Most of the time is Markdown parsing, which is the expected shape. Two builds of this input
-produce **byte-identical output** - asserted in the test suite.
+produce byte-identical output - asserted in the test suite.
 
 ## Known limitations
 

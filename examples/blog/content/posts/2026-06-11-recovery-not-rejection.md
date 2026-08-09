@@ -47,5 +47,5 @@ parse the input, and the regex does not:
 - `<a href="jav&#97;script:...">` - entity-encoded scheme
 - `<scr<script>ipt>` - the filter's own removal creates the tag
 
-Sanitize the parsed **tree** and all of them close at once, because the ambiguity is already
+Sanitize the parsed tree and all of them close at once, because the ambiguity is already
 resolved. Error recovery is not a nicety here; it is the security boundary.

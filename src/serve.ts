@@ -1,6 +1,6 @@
 /**
  * The development server: static file serving, file watching, incremental rebuilds, and live
- * reload over **Server-Sent Events**.
+ * reload over Server-Sent Events.
  *
  * ## Why SSE and not WebSockets
  *

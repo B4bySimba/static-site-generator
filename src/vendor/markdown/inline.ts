@@ -1,31 +1,22 @@
 /**
  * Phase 2: the inline parser.
  *
- * ## Why emphasis needs an algorithm, not a regex
+ * An asterisk is not a reliable open/close marker. These are all legal and all
+ * mean different things (the examples use \u002a to keep this comment intact):
  *
- * `*` is not a reliable open/close marker. All of these are legal and mean different things:
+ *     *foo bar*        emphasis
+ *     a * b * c        literal asterisks
+ *     foo*bar*baz      intraword emphasis, allowed with *
+ *     foo_bar_baz      NOT emphasis, which is what saves snake_case
  *
- *     *foo bar*            emphasis
- *     a * b * c            literal asterisks (surrounded by spaces)
- *     *foo**bar**baz*      emphasis containing strong
- *     **foo*bar*baz**      strong containing emphasis
- *     foo*bar*baz          intraword emphasis with * (allowed)
- *     foo_bar_baz          NOT emphasis with _ (intraword _ is not, so snake_case survives)
+ * CommonMark settles it with delimiter runs and flanking rules. A run may open
+ * if it is left-flanking (no whitespace after, and either no punctuation after
+ * or whitespace/punctuation before) and may close if it is right-flanking, the
+ * mirror image. Underscore has an extra restriction that keeps identifiers whole.
  *
- * CommonMark resolves this with **delimiter runs** and flanking rules:
- *
- *   left-flanking  = not followed by whitespace, AND (not followed by punctuation
- *                    OR preceded by whitespace/punctuation)
- *   right-flanking = not preceded by whitespace, AND (not preceded by punctuation
- *                    OR followed by whitespace/punctuation)
- *
- *   `*` may open if left-flanking, may close if right-flanking.
- *   `_` additionally may not open when it could also close unless preceded by punctuation -
- *       which is precisely what keeps snake_case identifiers intact.
- *
- * The parser therefore runs in two passes: scan the text into a flat list of nodes while
- * recording every delimiter run on a stack, then walk the stack pairing closers with openers
- * (the "process emphasis" algorithm) and rewrite the node list into a tree.
+ * So this runs in two passes: scan text into a flat node list while pushing every
+ * delimiter run onto a stack, then walk the stack pairing closers with openers
+ * and rewrite the list into a tree.
  */
 
 import type { InlineNode, Link, LinkReference } from "./ast.js";

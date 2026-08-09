@@ -13,7 +13,7 @@ If a correct implementation already exists, use it as an oracle. The JSON parser
 thousands of random documents and asserts that its output is *identical* to `JSON.parse` -
 in both directions:
 
-- Both accept it, and the values match, **or**
+- Both accept it, and the values match, or
 - Both reject it.
 
 Anything else is a bug. This found edge cases in surrogate-pair handling that no hand-written
@@ -22,7 +22,7 @@ case would have covered, because I did not know to write them.
 ## Conformance testing across implementations
 
 The job queue has two backends - in-memory and Redis - behind one interface. One conformance
-suite runs against **both**.
+suite runs against both.
 
 That suite caught a bug where Redis broke FIFO ordering for jobs enqueued in the same
 millisecond: identical sorted-set scores fell back to lexicographic ordering by random UUID.

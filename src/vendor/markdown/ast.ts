@@ -1,7 +1,7 @@
 /**
  * The AST.
  *
- * The whole design rests on one decision: **parse to a tree, then render the tree**. A
+ * The whole design rests on one decision: parse to a tree, then render the tree. A
  * regex-substitution Markdown converter - the classic "match a pair of asterisks and swap in
  * `<strong>`" approach - cannot express nesting, cannot tell a `*` inside a code span from an
  * emphasis marker, and has no place to hang extensions. A tree can do all three.
